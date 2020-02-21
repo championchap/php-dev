@@ -1,0 +1,54 @@
+version: '3'
+
+services:
+  web:
+    image: nginx:1.17
+    ports:
+      - "80:80"
+    volumes:
+      - ./code:/code
+      - ./docker/web/config/site.conf:/etc/nginx/conf.d/default.conf
+      - ./logs/nginx:/var/log/nginx
+    links:
+      - php
+      - adminer
+
+  php:
+    build: ./docker/php
+    volumes:
+      - ./code:/code
+    links:
+      - database
+      - redis
+
+  database:
+    image: mariadb:10.4
+    environment:
+      - MYSQL_ROOT_PASSWORD=2secure4u
+    volumes:
+      - ./database/entry:/docker-entrypoint-initdb.d
+      - ./database/data:/var/lib/mysql
+
+  redis:
+    image: redis:5.0
+    restart: always
+
+  adminer:
+    image: adminer:fastcgi
+    environment:
+      - ADMINER_DESIGN=pepa-linha
+    ports:
+        - 9000:9000
+    links:
+      - database
+
+  composer:
+    image: composer:1.9
+    command: install
+    volumes:
+      - ./code:/app
+
+  node:
+    image: node:12
+    volumes:
+      - ./code:/code
