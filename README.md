@@ -1,8 +1,6 @@
 # php-dev
 
-A dockerised PHP development environment I use for my own projects.
-
-DO NOT USE THIS IN PRODUCTION!
+A PHP development environment in Docker.
 
 
 ## Services
