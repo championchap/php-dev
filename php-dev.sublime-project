@@ -4,21 +4,5 @@
 		{
 			"path": "."
 		}
-	],
-
-  "settings": {
-    "xdebug": {
-      "path_mapping": {
-        "/var/www/bchs.rfsdev.tk/": "/Users/cwells/www/bchs.rfsdev.tk"
-      },
-      "ide_key": "sublime.xdebug",
-      "url": "http://localhost",
-      "port": 9000,
-      "close_on_stop": true,
-      "max_depth": 3,
-      "max_children": 32,
-      "debug": true,
-      "launch_browser": false
-    }
-  }
+	]
 }
