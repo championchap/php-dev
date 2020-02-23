@@ -3,3 +3,4 @@ database/data/
 database/entry/
 code/
 *.sublime-workspace
+*.swp
