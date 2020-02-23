@@ -8,7 +8,8 @@ services:
     volumes:
       - ./code:/code
       - ./config/nginx/site.conf:/etc/nginx/conf.d/default.conf
-      - ./logs/nginx:/var/log/nginx
+      - ./logs/adminer:/tmp/adminer
+      - ./logs/site:/tmp/site
     links:
       - php
       - adminer
@@ -18,8 +19,8 @@ services:
     volumes:
       - ./code:/code
       - ./config/php/php.ini:/usr/local/etc/php/php.ini
-      - ./logs/xdebug/error.log:/tmp/xdebug.log
-      - ./logs/php/error.log:/tmp/php.log
+      - ./logs/xdebug:/tmp/xdebug
+      - ./logs/php:/tmp/php
     links:
       - database
       - redis
