@@ -8,8 +8,8 @@ services:
     volumes:
       - ./code:/code
       - ./config/nginx/site.conf:/etc/nginx/conf.d/default.conf
-      - ./logs/adminer:/tmp/adminer
-      - ./logs/site:/tmp/site
+      - ./logs/nginx/adminer:/tmp/adminer
+      - ./logs/nginx/site:/tmp/site
     links:
       - php
       - adminer
