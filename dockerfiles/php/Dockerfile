@@ -11,6 +11,9 @@ RUN apt-get install -y \
     libzip-dev \
     libpq-dev
 
+# Install XDebug
+RUN pecl install xdebug
+
 # PHP Extensions
 RUN docker-php-ext-install \
   gd \
